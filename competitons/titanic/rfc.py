@@ -22,7 +22,7 @@ train_data.head()
 from sklearn.ensemble import RandomForestClassifier
 
 y = train_data["Survived"]
-features = ["Pclass", "Sex", "Age", "SibSp"]
+features = ["Pclass", "Sex", "Age", "SibSp", "Parch"]
 
 # get_dummies: let string data or others numerized
 x = pd.get_dummies(train_data[features])
@@ -30,7 +30,7 @@ x["Age"] = [int(s) if not np.isnan(s) else -1 for s in x["Age"]]
 x_test = pd.get_dummies(test_data[features])
 x_test["Age"] = [int(s) if not np.isnan(s) else -1 for s in x_test["Age"]]
 
-model = RandomForestClassifier(n_estimators=100, max_depth=5, random_state=3)
+model = RandomForestClassifier(n_estimators=100, max_depth=5, random_state=2)
 model.fit(x, y)
 pred = model.predict(x_test)
 
