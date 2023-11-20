@@ -1,5 +1,7 @@
 **/.DS_Store
 
+venv
+
 **/target
 
 **/Cargo.lock
